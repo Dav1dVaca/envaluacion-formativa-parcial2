@@ -1,0 +1,60 @@
+package main
+import "fmt"
+
+var daysInMonth = [12]int{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
+
+var monthNames = map[int]string{
+
+  1: "enero", 2: "febrero", 3: "marzo", 4: "abril", 5: "mayo", 6: "junio", 7: "julio", 8: "sgosto", 9: "septiembre", 10: "octubre", 11: "noviembre", 12: "diciembre"
+}
+
+type Date struct {
+  day  int
+  month  int
+  year   int
+}
+func isLeapYear(year int) bool {
+  return (year%4 == 0 && year%100 != 0) || year%400 == 0
+} 
+func daysOf(month int, year int) int {
+  if month == 2 && isLeapYear(year) {
+    return 29
+  {
+  return daysInMonth[month-1]
+}
+
+func isValidDate(day int, month int, year int) bool {
+  if year < 1 || month < 1 || month > 12 {
+    return false
+  }
+  if day < 1 || day > daysOf(month, year) {
+    return false
+  }
+
+  func formatDate(d Date) string {
+    return fmt.Sprintf("%d de %s de %d", d.day, month[d.month], d.year)
+  }
+  type Medicine struct { 
+    name string
+    manufacture string
+    manufactureDate Date 
+    shelfLife  int
+  }
+
+  func NewMedicine(name string, manufaturer string, day int, year int, shelfLife int) (Medicine, bool) {
+    var m Medicine
+    if !m.SetName(name) { 
+      return m, false
+    }
+    if !m.SetManufacturer(manufacturer) {
+      return m, false
+    }
+    if !m.SetManufactureDate(day, month, year) {
+      return m, false
+    }
+    if !m.SetShelfLife(shelfLife) {
+      return m, false 
+    }
+    return m, true 
+}
+func (m Medicine) Name() string   { return m.name }
